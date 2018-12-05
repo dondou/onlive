@@ -1,0 +1,84 @@
+<include file="public@header"/>
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:url('admin_kemu/index')}">科目列表</a></li>
+			<li class="active"><a>编辑科目</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('admin_kemu/editPost')}">
+        
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">ID<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+              <input type="text" class="form-control" id="input-kmid"  required name="kmid" value="{$result.kmid}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+              <input type="text" class="form-control" id="input-name" required name="kmname"  value="{$result.kmname}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">类别<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+              <input type="text" class="form-control" id="input-kmleibie" required name="kmleibie"  value="{$result.kmleibie}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">方向<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" required id="input-kmfangxiang" name="kmfangxiang">
+						<option value="j" <eq name='result.kmfangxiang' value='j' >selected</eq>>借</option>
+						<option value="d" <eq name='result.kmfangxiang' value='d' >selected</eq>>贷</option>
+			  </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">外币核算<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+                <select class="form-control" id="input-kmfangxiang" name="kmwbhs">
+						<option value=""></option>
+						<option value="不核算" <eq name='result.kmwbhs' value='不核算' >selected</eq>>不核算</option>
+						<option value="所有币别" <eq name='result.kmwbhs' value='所有币别' >selected</eq>>所有币别</option>
+			  </select>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="input-name" class="col-sm-2 control-label">期末调汇<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" id="input-kmqmth" name="kmqmth">
+						<option value=""></option>
+						<option value="是" <eq name='result.kmqmth' value='是' >selected</eq>>是</option>
+						<option value="否" <eq name='result.kmqmth' value='否' >selected</eq>>否</option>
+			  </select>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">辅助核算<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" id="input-kmfzhs" name="kmfzhs">
+						<option value=""></option>
+						<option value="供应商"<eq name='result.kmfzhs' value='供应商' >selected</eq>>供应商</option>
+			  </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-remark" class="col-sm-2 control-label">备注</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea class="form-control" name="kmremark">{$result.kmremark}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+					<input type="hidden" name="id" value="{$result.id}">
+					<button type="submit" class="btn btn-primary js-ajax-submit">{:lang('SAVE')}</button>
+					<a class="btn btn-default" href="{:url('admin_kemu/index')}">{:lang('BACK')}</a>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>

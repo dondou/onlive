@@ -1,0 +1,73 @@
+<include file="public@header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="{:url('admin_kemu/index')}">科目列表</a></li>
+			<li><a href="{:url('admin_kemu/add')}">添加科目</a></li>
+		</ul>
+       <form class="well form-inline margin-top-20" >
+       
+          <input type="text" class="form-control" id="kid" style="width: 100%;" value="" placeholder="请输入..." autocomplete="off">
+      </form>
+		<table class="table table-hover table-bordered margin-top-20">
+			<thead>
+				<tr>
+					<th width="50">ID</th>
+					<th>科目</th>
+					<th>类别</th>
+					<th>方向</th>
+					<th>外币核算</th>
+					<th>期末调汇</th>
+					<th>辅助核算</th>
+				  <th>备注</th>
+					<th width="160">{:lang('ACTIONS')}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<php>
+
+				</php>
+				<foreach name="lists" item="vo">
+				<tr id="{$vo.kmid}" class="ktr" data-kmid="{$vo.kmid}">
+					<td>{$vo.kmid}</td>
+					<td>{$vo.kmname}</td>
+					<td>{$vo.kmleibie}</td>
+                    
+					<td><eq name="vo.kmfangxiang" value="j">借<else />贷</eq></td>
+					<td>{$vo.kmwbhs}</td>
+					<td>{$vo.kmqmth}</td>
+					<td>{$vo.kmfzhs}</td>
+					<td>{$vo.kmremark}</td>
+					<td>
+                        <a href="{:url('admin_kemu/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+						
+                        <a href="{:url('admin_kemu/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:lang('DELETE')}</a>
+                    </td>
+				</tr>
+				</foreach>
+			</tbody>
+		</table>
+
+	</div>
+	<script src="__STATIC__/js/admin.js"></script>
+    <script>
+ $("#kid").bind("keyup",function(){
+	 var ktr=$(".ktr");var tr=$("tr");
+	 v=$(this).val();
+	 if(v.length>0)
+	 {
+    ktr.hide();
+	 $("tr").each(function(){
+		// console.log($(this).attr("data-kmid"));
+		km=$(this).attr("data-kmid")+"";
+		//console.log(km.indexOf(v));
+        if(km.indexOf(v)== 0){$(this).show();}
+  });
+	 }else{
+		 ktr.show();
+		 }
+  });
+    </script>
+</body>
+</html>

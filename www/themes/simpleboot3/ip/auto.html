@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+#m{ width:500px;
+    height:300px;}
+</style>
+</head>
+
+<body><iframe src="http://ip.dondou.com/index/ipd/cid/242/p/1" id='m'></iframe>
+<div id='url'></div>
+</body>
+<script src="/themes/simpleboot3/public/assets/js/jquery-1.10.2.min.js"></script>
+<script>
+$(function(){
+	
+	setInterval("ttx()",1000);
+	setInterval("tx()",10000);
+
+});
+	function ttx(){
+		var w=$('#m').contents().find('#u').html();
+		console.log(w);
+		if(w){
+		url=w;
+		}
+	}
+function tx(){
+		var w=$('#m').contents().find('#u').html();
+		console.log(url);
+		if(!w){
+			$('#m').attr('src', url);
+			}
+	}
+</script>
+</html>

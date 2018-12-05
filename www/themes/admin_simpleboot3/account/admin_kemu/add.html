@@ -1,0 +1,83 @@
+<include file="public@header"/>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav nav-tabs">
+        <li><a href="{:url('admin_kemu/index')}">科目列表</a></li>
+        <li class="active"><a href="{:url('admin_kemu/add')}">添加科目</a></li>
+    </ul>
+    <form method="post" class="form-horizontal js-ajax-form margin-top-20" action="{:url('admin_kemu/addPost')}">
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">ID<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-kmid"  required name="kmid">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">名称<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-name" required name="kmname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">类别<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+                <input type="text" class="form-control" id="input-kmleibie" required name="kmleibie">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">方向<span class="form-required">*</span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" required id="input-kmfangxiang" name="kmfangxiang">
+						<option value=""></option>
+						<option value="j">借</option>
+						<option value="d">贷</option>
+					</select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">外币核算<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+                <select class="form-control" id="input-kmfangxiang" name="kmwbhs">
+						<option value=""></option>
+						<option value="不核算">不核算</option>
+						<option value="所有币别">所有币别</option>
+					</select>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="input-name" class="col-sm-2 control-label">期末调汇<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" id="input-kmqmth" name="kmqmth">
+						<option value=""></option>
+						<option value="是">是</option>
+						<option value="否">否</option>
+			  </select>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="input-name" class="col-sm-2 control-label">辅助核算<span class="form-required"></span></label>
+            <div class="col-md-6 col-sm-10">
+            <select class="form-control" id="input-kmfzhs" name="kmfzhs">
+						<option value=""></option>
+						<option value="供应商">供应商</option>
+					</select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="input-remark" class="col-sm-2 control-label">备注</label>
+            <div class="col-md-6 col-sm-10">
+                <textarea class="form-control" name="kmremark"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary js-ajax-submit">{:lang('ADD')}</button>
+                <a class="btn btn-default" href="{:url('admin_kemu/index')}">{:lang('BACK')}</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="__STATIC__/js/admin.js"></script>
+</body>
+</html>
